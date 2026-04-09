@@ -5,7 +5,7 @@ programa
 	{
 		inteiro tipo_salgado, qtd_salgado
 		inteiro tipo_bebida, qtd_bebida
-		real total, total_salgado, total_bebida
+		real total = 0.0, total_salgado = 0.0, total_bebida = 0.0
 		
 		escreva("Bem-vindo(a), vamos lanchar!\n")
 		escreva("\nCódigo | Salgado | Valor ")
@@ -20,7 +20,14 @@ programa
 		leia(qtd_salgado)
 		limpa()
 
-		se(tipo_salgado == 101){}
+		//Lógica salgados
+		se(tipo_salgado == 101){
+			total_salgado = 4.50*qtd_salgado
+		}senao se(tipo_salgado == 102){
+			total_salgado = 5.50*qtd_salgado
+		}senao se(tipo_salgado == 103){
+			total_salgado = 6.00*qtd_salgado
+		}
 		
 		escreva("\nCódigo | Bebida       | Valor ")
 		escreva("\n--------------------------")
@@ -33,7 +40,28 @@ programa
 		escreva("\nDigite a quantidade da bebida:")
 		leia(qtd_bebida)
 		limpa()
+
+		//Lógica bebidas
+		se(tipo_bebida == 201){
+			total_bebida = 3.00*qtd_bebida
+		}senao se(tipo_bebida == 202){
+			total_bebida = 4.50*qtd_bebida
+		}senao se(tipo_bebida == 203){
+			total_bebida = 5.00*qtd_bebida
+		}
 		
+		escreva("\nItem | Quantidade | Total ")
+		escreva("\n--------------------------")
+		escreva("\n",tipo_salgado,"  | ",qtd_salgado,"          | R$",total_salgado)
+		escreva("\n",tipo_bebida,"  | ",qtd_bebida,"          | R$", total_bebida)
+		escreva("\n--------------------------")
+
+		total = total_salgado + total_bebida
+		se(total > 100){
+			escreva("\n\nTotal da compra (com desconto de 10%): R$",total*0.9)
+		}senao{
+			escreva("\n\nTotal da compra: R$",total)
+		}
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -41,7 +69,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 516; 
+ * @POSICAO-CURSOR = 1338; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
